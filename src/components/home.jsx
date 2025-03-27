@@ -1,18 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, lazy, Suspense } from "react";
 import { useUser } from "../context/context";
 import Header from "./header";
 import Footer from "./footer";
-import Body from "./body";
-import Slider from "./slider.jsx";
-import Product from "./products.jsx";
-import Uses from "./uses.jsx";
 import "../../public/home.css";
-import Review from "./review.jsx";
+
+const Body = lazy(() => import("./body"));
+const Slider = lazy(() => import("./slider.jsx"));
+const Product = lazy(() => import("./products.jsx"));
+const Uses = lazy(() => import("./uses.jsx"));
+const Review = lazy(() => import("./review.jsx"));
 
 function Home() {
   const { user } = useUser();
   const targetRef = useRef(null);
   const homeref = useRef(null);
+  const [highlightname, sethighlightname] = useState("");
 
   // Scroll handler function
   const scrollToComponent = () => {
@@ -22,7 +24,7 @@ function Home() {
         block: "start",
       });
     } else {
-      console.log("targetRef is null"); // Debug log
+      console.log("targetRef is null");
     }
   };
 
@@ -33,13 +35,14 @@ function Home() {
         block: "start",
       });
     } else {
-      console.log("homeref is null"); // Debug log
+      console.log("homeref is null");
     }
   };
-const [highlightname,sethighlightname]=useState("");
-function sethigh(name){
-sethighlightname(name);
-}
+
+  function sethigh(name) {
+    sethighlightname(name);
+  }
+
   return (
     <div>
       <Header
@@ -50,16 +53,29 @@ sethighlightname(name);
       />
       <div className="homeclass">
         <div ref={homeref}>
-          {" "}
-          <Body className="b1" />
+          <Suspense fallback={<div>Loading Body...</div>}>
+            <Body className="b1" />
+          </Suspense>
         </div>
-        <Slider className="b2" />
+        <Suspense fallback={<div>Loading Slider...</div>}>
+          <Slider className="b2" />
+        </Suspense>
         <div ref={targetRef} className="outerclass">
-          <Product className="products" highname={highlightname} scroll={scrollToComponent} />
+          <Suspense fallback={<div>Loading Products...</div>}>
+            <Product
+              className="products"
+              highname={highlightname}
+              scroll={scrollToComponent}
+            />
+          </Suspense>
         </div>
-        <Uses className="Usesclass" />
-        <Review />
-        <Footer  scroll={scrollToComponent} className="footerclass" />
+        <Suspense fallback={<div>Loading Uses...</div>}>
+          <Uses className="Usesclass" />
+        </Suspense>
+        <Suspense fallback={<div>Loading Reviews...</div>}>
+          <Review />
+        </Suspense>
+        <Footer scroll={scrollToComponent} className="footerclass" />
       </div>
     </div>
   );
