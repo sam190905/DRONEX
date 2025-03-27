@@ -1,0 +1,185 @@
+/* Add this at the top of your CSS file to import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&family=Pacifico&family=Josefin+Sans:wght@400;700&display=swap');
+
+.review-section {
+    padding: 40px 20px;
+    width: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    z-index: 700;
+    border-top: 2px double white;
+    border-bottom: 2px double white;
+    position: relative;
+    text-align: center;
+}
+
+.reviews-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 100%;
+}
+
+/* Review Card */
+.review-card {
+    background: #2d2d2d;
+    border-radius: 12px;
+    padding: 25px;
+    width: 100%;
+    max-width: 320px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.3s ease-in-out;
+    margin: 20px;
+    font-family: 'Roboto', sans-serif;
+    z-index: 150;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 170, 255, 0.4);
+}
+
+/* Review Image */
+.review-image {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #00aaff;
+    box-shadow: 
+        0 0 10px rgba(0, 170, 255, 0.7),
+        0 0 20px rgba(0, 170, 255, 0.3),
+        inset 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Review Content */
+.review-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.review-content h3 {
+    color: white;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+/* Section Heading */
+.review-section > h2 {
+    font-family: "Orbitron", sans-serif;
+    text-align: center;
+    margin-bottom: 35px;
+    color: #ffffff;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* Review Subtitle */
+.review-section > h3 {
+    margin: 0;
+    color: #00aaff;
+    font-size: 1.2em;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 400;
+}
+
+/* Product Name */
+.review-product {
+    color: #aaaaaa;
+    font-size: 0.9em;
+    margin: 5px 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+/* Review Text */
+.review-text {
+    color: #d0d0d0;
+    margin: 10px 0;
+    line-height: 1.4;
+    font-size: 1em;
+}
+
+/* Rating Stars */
+.rating {
+    color: #ffaa00;
+    font-size: 1.3em;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .review-card {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .reviews-container {
+        padding: 0 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .review-card {
+        max-width: 90%;
+    }
+
+    .review-section > h2 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .review-card {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .review-section {
+        padding: 30px 15px;
+    }
+
+    .review-section > h2 {
+        font-size: 1.5em;
+    }
+
+    .review-image {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Floating Light Effect */
+.focus {
+    z-index: 100;
+    position: absolute;
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    background-color: gold;
+    filter: blur(70px);
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* Adjust for smaller screens */
+@media (max-width: 600px) {
+    .focus {
+        height: 150px;
+        width: 150px;
+        filter: blur(60px);
+    }
+}

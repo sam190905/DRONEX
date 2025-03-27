@@ -1,0 +1,172 @@
+/* General container styling */
+.about-container {
+    position: relative;
+    min-height: 100vh; /* Full viewport height */
+    padding: 40px 20px;
+    font-family: "Quicksand", sans-serif; /* Modern, clean font */
+    color: #e0e0e0; /* Light text color for contrast */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    width: 100%;
+}
+
+/* Background image with overlay using ::before */
+.about-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.7; /* Lower opacity for a subtle background */
+    z-index: 1;
+}
+
+/* Ensure content stays above the background */
+.about-container > div {
+    position: relative;
+    z-index: 2;
+    max-width: 900px; /* Limit content width for readability */
+    margin: 0 auto; /* Center the content */
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background for content */
+    padding: 30px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+}
+
+/* Section styling */
+main section {
+    margin-bottom: 40px;
+}
+
+main h2 {
+    font-size: 1.8rem;
+    color: #66b0ff; /* Light blue to match drone tech theme */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #66b0ff; /* Underline effect */
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+/* Paragraphs */
+main p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+    margin: 10px 0;
+}
+
+/* Unordered list (What We Offer) */
+main ul {
+    list-style-type: none; /* Remove default bullets */
+    padding-left: 0;
+    margin: 15px 0;
+}
+
+main ul li {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #e0e0e0;
+}
+
+main ul li::before {
+    content: "✈️"; /* Drone emoji as bullet */
+    position: absolute;
+    left: 0;
+    color: #66b0ff;
+    font-size: 1.2rem;
+}
+
+/* Ordered list (Why Choose DroneX?) */
+main ol {
+    list-style-type: none; /* Remove default numbers */
+    counter-reset: item; /* Reset counter for custom numbering */
+    padding-left: 0;
+    margin: 15px 0;
+}
+
+main ol li {
+    font-size: 1.1rem;
+    margin: 15px 0;
+    padding-left: 40px;
+    position: relative;
+    color: #e0e0e0;
+}
+
+main ol li::before {
+    counter-increment: item;
+    content: counter(item) ".";
+    position: absolute;
+    left: 0;
+    color: #66b0ff;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Links */
+main a {
+    color: #66b0ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+main a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .about-container > div {
+        padding: 20px;
+        margin: 0 10px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    main h2 {
+        font-size: 1.5rem;
+    }
+
+    main p,
+    main ul li,
+    main ol li {
+        font-size: 1rem;
+    }
+}

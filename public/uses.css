@@ -1,0 +1,230 @@
+/* Add this at the top of your CSS file to import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+.component {
+  background-color: rgb(43, 43, 43);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  row-gap: 100px;
+  z-index: 600;
+  padding: 50px;
+}
+
+.use {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: max-content 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.use > video {
+  height: 360px;
+  width: auto;
+  border-radius: 30px;
+  margin: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 0 4px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  justify-self: center;
+  z-index: 1000;
+}
+
+.use > video:hover {
+  transform: scale(1.02);
+}
+
+.use > .headeruse {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 50px;
+  font-weight: 700;
+  color: lightgreen;
+  z-index: 1000;
+  margin: 20px;
+}
+
+.use > .desc {
+  z-index: inherit;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+}
+
+/* Agriculture - Video on right */
+.agriculture video { grid-row: 1/-1; grid-column: 2/3; }
+.agriculture > .headeruse { grid-row: 1/2; grid-column: 1/2; }
+.agriculture > .desc { grid-column: 1/2; grid-row: 2/3; }
+
+/* Photography - Video on left */
+.photography video { grid-row: 1/-1; grid-column: 1/2; }
+.photography > .headeruse { grid-row: 1/2; grid-column: 2/3; color: skyblue; }
+.photography > .desc { grid-row: 2/3; grid-column: 2/3; }
+
+/* Rescue - Video on right */
+.rescue video { grid-row: 1/-1; grid-column: 2/3; }
+.rescue > .headeruse { grid-row: 1/2; grid-column: 1/2; color: palevioletred; }
+.rescue > .desc { grid-column: 1/2; grid-row: 2/3; }
+
+/* Delivery - Video on left */
+.delivery video { grid-row: 1/-1; grid-column: 1/2; }
+.delivery > .headeruse { grid-row: 1/2; grid-column: 2/3; color: lightsalmon; }
+.delivery > .desc { grid-row: 2/3; grid-column: 2/3; }
+
+/* Shared properties for all circles */
+.circle {
+  border-radius: 50%;
+  height: 500px;
+  width: 500px;
+  z-index: 400;
+  position: absolute;
+  filter: blur(80px);
+}
+
+/* Specific properties for each circle */
+.one {
+  background-color: rgb(16, 192, 139);
+  right: 20px;
+  top: 0px;
+}
+
+.two {
+  background-color: skyblue;
+  left: 20px;
+  top: 23%;
+}
+
+.three {
+  background-color: palevioletred;
+  right: 20px;
+  top: 50%;
+}
+
+.four {
+  background-color: lightsalmon;
+  left: 20px;
+  bottom: 0px;
+}
+
+.model {
+  margin-top: 40px;
+  display: block;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.buttonb {
+  justify-self: center;
+}
+
+.buttonb > button {
+  color: white;
+  height: 40px;
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttonb > button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3),
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.buttonb > button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 4px rgba(255, 255, 255, 0.2);
+}
+
+/* ------------------- RESPONSIVE DESIGN ------------------- */
+@media (max-width: 1024px) {
+  .use {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .use > video {
+    height: 320px;
+    width: 90%;
+  }
+
+  .use > .headeruse {
+    font-size: 2.2em;
+  }
+
+  .circle {
+    height: 350px;
+    width: 350px;
+    filter: blur(70px);
+  }
+}
+
+@media (max-width: 768px) {
+  .use > .headeruse {
+    font-size: 1.8em;
+  }
+
+  .use > .desc {
+    font-size: 1em;
+  }
+
+  .use > video {
+    height: 280px;
+  }
+
+  .circle {
+    height: 280px;
+    width: 280px;
+    filter: blur(60px);
+  }
+
+  .buttonb {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .buttonb > button {
+    width: 90%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .use > .headeruse {
+    font-size: 1.6em;
+  }
+
+  .use > .desc {
+    font-size: 0.9em;
+  }
+
+  .use > video {
+    height: 220px;
+  }
+
+  .circle {
+    height: 200px;
+    width: 200px;
+    filter: blur(40px);
+  }
+
+  .buttonb > button {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+
+.buttonb>button>a{
+  color: white;
+  text-decoration: none;
+}

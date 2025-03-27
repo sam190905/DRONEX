@@ -1,0 +1,111 @@
+/* Ensure the slider fills the screen */
+.sliderclass {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: black; /* Fallback background */
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  /* Style the video */
+  .sliderclass video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video fills the area */
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  /* Overlay effect for better readability */
+  .sliderclass::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Slight dark overlay */
+  }
+  
+  /* Text Styling */
+  .sliderclass h1 {
+    position: absolute;
+    z-index: 2;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  .arrow{
+    height: 60px;
+    z-index: 4;
+    transition:  0.3s ease;
+    cursor: pointer; /* Changes the cursor */
+
+
+  }
+
+  .arrow:hover{
+    transform: scale(1.3);
+  }
+
+  .right{
+    position: absolute;
+    right: 20px;
+    
+  }
+
+  .left{
+    position: absolute;
+    left: 20px;
+  }
+
+  .dotbox{
+    z-index: 5;
+    display: flex;
+    gap: 15px;
+    position: absolute;
+    bottom: 10px;
+    
+  }
+
+  .dots {
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    background-color: gray;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer; /* Changes the cursor */
+    transition: background-color 0.3s ease;
+  }
+  
+  .dots:hover {
+    transform: scale(1.5);
+    background-color: white; /* Change color on hover */
+  }
+    
+  .dots.active {
+    background-color: white; /* Change color for active dot */
+  }
+  .model-name{
+    z-index: 5;
+    position: absolute;
+    top: 10px;
+    color: white;
+    font-family: "Tektur", sans-serif;
+    font-optical-sizing: auto;  font-size: 50px;
+    font-weight: 100;
+    
+  }

@@ -1,0 +1,163 @@
+.footerclass{
+    
+    width :100%;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    z-index: 1000;
+    grid-row: -2/-1;
+
+    font-family: "Cabin", sans-serif;
+    font-optical-sizing: auto;
+    color: white;
+  
+  
+}
+.footerelements{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    margin: 20px;
+}
+.logoelement{
+    justify-self: left;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    background-color: rgb(49, 51, 53);
+    width: max-content;
+    
+}
+
+.footer-links{
+    color: white;
+    justify-self: left;
+}
+.footer-links>ul{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links>ul>li>NavLink{
+    color: white;
+}
+
+.nav{
+    color: white;
+    text-decoration: none;
+}
+.logoelement>p{
+    font-size: 30px;
+    color: white;
+    font-weight: 500;
+    font-family: "Nunito", serif;
+    margin: 0;
+
+}
+#shop{
+    cursor: pointer;
+}
+.contact{
+    justify-content: center;
+    justify-self: left;
+}
+.contact>h4{
+    color: white;
+}
+
+.links{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px;
+}
+
+.links>img{
+    height: 30px;
+}
+.links>*{
+    transition: all 0.3s ease;
+}
+    
+.links>*:hover{
+transform: scale(1.2);
+}
+
+.email{
+margin: 10PX;
+color: white;
+}
+
+.email>h4{
+    color: white;
+    margin: 5px;
+    justify-self: center;
+}
+
+.email>p{
+    color: bisque;
+    font-weight: 100;
+}
+
+
+
+.foot{
+    color: white;
+    background-color: transparent;
+}
+
+
+/* footer.css */
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+}
+
+.newsletter-form input {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    flex-grow: 1;
+    font-size: 14px;
+}
+
+.newsletter-form button {
+    margin-top: 5px;
+    height: 40px;
+    padding: 8px 16px;
+    background-color: #00aaff;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #0088cc;
+}
+
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.sentence{
+    justify-self: left;
+    margin: 10px;
+    font-family: "Pacifico", cursive;
+    color: turquoise;
+    font-size: 20px;
+}
+
+
+
+
+
+

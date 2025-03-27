@@ -1,0 +1,231 @@
+.headerclass {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: transparent;
+  z-index: 2000; /* Ensures it stays above other elements */
+}
+
+.elements {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: 1 10;
+}
+
+.buttondabba {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.buttondabba > #cart {
+  grid-column: 9/10;
+}
+
+/* Search container */
+.search-container {
+  grid-column: 8/9;
+  display: flex;
+  align-items: center;
+  height: 40px; /* Matches button height from your navbar */
+  justify-self: center;
+  position: relative; /* For positioning the suggestions list */
+}
+
+/* Wrapper for input and button to align them horizontally */
+.search-bar-wrapper {
+  display: flex;
+  align-items: center;
+  background: white; /* White background as in the image */
+  border: 1px solid #ccc; /* Subtle border, matching your #searchInput */
+  border-radius: 20px; /* Rounded corners as in the image */
+  overflow: hidden; /* Ensure rounded corners apply to children */
+  height: 37px; /* Matches your #searchButton height */
+}
+
+/* Search input */
+#searchInput {
+  padding: 10px 12px; /* Comfortable padding, as in your original */
+  font-size: 14px;
+  width: 200px; /* Default width, as in your original */
+  border: none; /* Remove border since it's handled by the wrapper */
+  outline: none; /* Removes default focus outline, as in your original */
+  background-color: #fff; /* White background, as in your original */
+  color: #333; /* Dark text for contrast, as in your original */
+  border-radius: 20px 0 0 20px; /* Rounded left corners */
+  transition: box-shadow 0.3s ease; /* Smooth transitions, modified to only include box-shadow */
+}
+
+/* Focus state for search input */
+#searchInput:focus {
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Glow effect, as in your original */
+}
+
+/* Search button */
+#searchButton {
+  padding: 10px 12px; /* Matches input padding, as in your original */
+  height: 37px; /* Consistent height, as in your original */
+  background-color: white; /* Match the wrapper background, updated to match the image */
+  border: none; /* Remove border since it's handled by the wrapper */
+  border-radius: 0 20px 20px 0; /* Rounded right corners */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease; /* Smooth hover effect, as in your original */
+  margin: 0;
+}
+
+/* Hover state for search button */
+#searchButton:hover {
+  background-color: #f0f0f0; /* Light gray on hover, updated to be more subtle */
+}
+
+/* Search button image */
+#searchimg {
+  height: 18px; /* As in your original */
+  width: 18px; /* Ensure it's a square for consistency */
+}
+
+/* Suggestions list */
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: rgba(255, 255, 255, 0.427);
+
+}
+
+/* Suggestion items */
+.suggestions-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* Hover effect for suggestions */
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-container {
+    width: 100%; /* Full width on small screens */
+    justify-content: center;
+  }
+
+  #searchInput {
+    width: 100%; /* Expands to fill container */
+    max-width: 300px; /* Optional: limits excessive stretching */
+  }
+}
+
+.headingbox {
+  width: max-content;
+  padding: 20px;
+  margin: 20px;
+  color: white;
+  font-family: "Nunito", serif;
+  font-weight: 600;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-shadow: 2 2 5px rgb(0, 0, 0);
+  background: rgba(47, 47, 47, 0.861); /* Semi-transparent background */
+  border-radius: 10px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.headingbox > h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: 5px;
+}
+
+#cart {
+  height: 40px;
+  margin: 10px;
+  justify-self: center;
+  transition: all 0.3s ease;
+}
+
+#cart:hover {
+  transform: scale(1.1);
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  gap: 0;
+}
+
+.user > img {
+  height: 50px; /* Slightly larger for visibility */
+  width: 50px; /* Consistent with height for a circle */
+  border-radius: 50%; /* Circular shape */
+  background-color: #2d2d2d; /* Dark gray background */
+  object-fit: cover; /* Ensures image fits nicely */
+  cursor: pointer; /* Indicates it’s clickable */
+  border: 2px solid #ffffff; /* White border for contrast */
+  transition: transform 0.2s ease, border-color 0.2s ease; /* Smooth hover effects */
+  margin: 5px;
+  padding: 0;
+}
+
+.user > img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+  border-color: #007bff; /* Blue border on hover (matches search button) */
+}
+
+.user > p {
+  margin: 0;
+  color: white;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.navbutton {
+  color: white;
+  height: auto;
+  margin: 10px; /* Space around each button */
+  padding: 5px 15px; /* Adjusted padding for better width */
+  width: max-content; /* Adapts to content size */
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
+  font-weight: bolder;
+  text-align: center;
+  cursor: pointer; /* Indicates clickable button */
+  transition: all 0.3s ease; /* Smooth hover transition */
+  border-radius: 25px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  text-decoration: none; /* Removes underline from NavLink */
+  display: inline-block; /* Ensures proper button-like behavior */
+}
+
+/* Hover state */
+.navbutton:hover {
+  box-shadow: 0 0 3px white; /* Subtle glow effect */
+  border: 1px solid white; /* White border on hover */
+  background-color: rgba(255, 255, 255, 0.1); /* Slight background tint */
+}
