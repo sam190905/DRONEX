@@ -1,5 +1,5 @@
 import React from "react";
-import "../../public/Review.css";
+import "../../public/review.css";
 
 function Review() {
   const reviews = [
