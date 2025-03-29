@@ -14,7 +14,11 @@ const port = 3000;
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 app.use(express.json());
-app.use(cors({ origin: process.env.FRONTEND_ORIGIN }));
+app.use(cors({ 
+  origin: "*", // Allow all origins temporarily
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type,Authorization"
+}));
 
 // Database Connection using Pooler Host
 const db = new pg.Client({
