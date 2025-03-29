@@ -61,6 +61,7 @@ function Footer(props) {
 
         </div>
       </div>
+      <p>|-Developed by Samarth Purant-|</p>
       <p className="foot">
         <p>&copy; {new Date().getFullYear()} Dronex. All rights reserved.</p>
       </p>
