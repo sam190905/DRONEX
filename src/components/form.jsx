@@ -24,7 +24,7 @@ function Form() {
         const formData = { username, password };
 
         try {
-            const response = await fetch("https://dronex-front.onrender.com/login", {
+            const response = await fetch("https://dronex-back.onrender.com/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
@@ -52,7 +52,7 @@ function Form() {
             console.log("Google User Info:", decoded);
 
             // Send token to backend for verification & authentication
-            const res = await fetch("http://localhost:3000/google-login", {
+            const res = await fetch("https://dronex-back.onrender.com/google-login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ token: response.credential }),
