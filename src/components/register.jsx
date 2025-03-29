@@ -18,7 +18,7 @@ function Register() {
         const formData = { username, password };
 
         try {
-            const response = await fetch("https://dronex-front.onrender.com/register", {
+            const response = await fetch("https://dronex-back.onrender.com/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
