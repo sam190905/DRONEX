@@ -65,6 +65,7 @@ app.post("/register", async (req, res) => {
     await db.query(query, [username, hashedpass]);
     res.status(201).json({ message: "User registered successfully!", success: true });
   } catch (error) {
+    alert("User already exist!")
     res.status(500).json({ error: error.message, success: false });
   }
 });
