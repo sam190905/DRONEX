@@ -43,7 +43,7 @@ function Footer(props) {
             <img src="/media/logos/gmail.png"></img>
           </div>
           <br></br>
-          <p>📞 Customr-care : <span> </span>445454178</p>
+          <p>📞 Customer-care : <span> </span>445454178</p>
           <p>📧 Mail us at:<span> </span> dronex@gmail.com</p>
         </div>
         <div className="email">
