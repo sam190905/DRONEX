@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../public/review.css";
 
 function Review() {
-  const reviews = [
+  const [reviews, setReviews] = useState([
     {
       id: 1,
       name: "Alex Turner",
@@ -27,19 +27,44 @@ function Review() {
       rating: 5,
       product: "DJI Mavic 3 pro"
     }
-  ];
+  ]);
+
+  const [newReview, setNewReview] = useState({
+    name: "",
+    text: "",
+    rating: 0,
+    product: "",
+    image: "/media/profiles/default.jpg"
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewReview({ ...newReview, [name]: value });
+  };
+
+  const handleRating = (ratingValue) => {
+    setNewReview({ ...newReview, rating: ratingValue });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const reviewToAdd = {
+      ...newReview,
+      id: reviews.length + 1,
+    };
+    setReviews([reviewToAdd, ...reviews]); // Add to top
+    setNewReview({ name: "", text: "", rating: 0, product: "", image: "/media/profiles/default.jpg" });
+  };
 
   return (
     <div className="review-section">
       <h2>What DroneX Pilots Say</h2>
-      <div className='focus right'></div>
-      <div className='focus left'></div>
 
       <div className="reviews-container">
         {reviews.map((review) => (
           <div key={review.id} className="review-card">
-            <img 
-              src={review.image} 
+            <img
+              src={review.image}
               alt={`${review.name}'s profile`}
               className="review-image"
             />
@@ -56,6 +81,47 @@ function Review() {
           </div>
         ))}
       </div>
+
+      <form className="review-form" onSubmit={handleSubmit}>
+        <h3>Share your review</h3>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={newReview.name}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="product"
+          placeholder="Product Name"
+          value={newReview.product}
+          onChange={handleChange}
+          required
+        />
+        <textarea
+          name="text"
+          placeholder="Write your review..."
+          value={newReview.text}
+          onChange={handleChange}
+          required
+        ></textarea>
+        <div className="rating-input">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <span
+              key={star}
+              onClick={() => handleRating(star)}
+              style={{ cursor: "pointer", color: star <= newReview.rating ? "gold" : "gray" }}
+            >
+              ★
+            </span>
+          ))}
+        </div>
+        <button type="submit">Submit Review</button>
+      </form>
+
+
     </div>
   );
 }
